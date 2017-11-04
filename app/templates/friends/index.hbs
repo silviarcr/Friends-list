@@ -1,14 +1,14 @@
-<h2>Listar</h2>
+<h3>Listar Todos</h3>
 {{#each model as |friend|}}
 <div class="col-md-4">
   <div class="panel panel-default friend-item">
     <div class="panel-heading">
-      <h3 class="panel-title">{{friend.fullName}}</h3>
+      <h3 class="panel-title">{{friend.name}}</h3>
     </div>
     <div class="panel-body">
-      <p>Nome: {{friend.firstName}}</p>
-      <p>Sobrenome: {{friend.lastName}}</p>
-      <p>Sobrenome: {{friend.beginDate}}</p>
+      <p>Nome: {{friend.name}}</p>
+      <p>Sobrenome: {{friend.lastname}}</p>
+      <p>Amigos desde: {{friend.friendsSince}}</p>
     </div>
     <div class="panel-footer text-right">
       {{#link-to 'friends.edit' friend.id class='btn btn-success btn-xs'}}Editar{{/link-to}}

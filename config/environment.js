@@ -13,8 +13,8 @@ module.exports = function(environment) {
       authDomain: "friends-list-2017.firebaseapp.com",
       databaseURL: "https://friends-list-2017.firebaseio.com",
       projectId: "friends-list-2017",
-      storageBucket: "",
-      //storageBucket: 'YOUR-FIREBASE-APP.appspot.com',
+     //storageBucket: "",
+      storageBucket: 'YOUR-FIREBASE-APP.appspot.com',
       messagingSenderId: "73038210788"
     },
 

@@ -3,13 +3,13 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 
   model(params) {
-    return this.store.findRecord('library', params.library_id);
+    return this.store.findRecord('friend', params.friend_id);
   },
 
   actions: {
 
-    saveLibrary(library) {
-      library.save().then(() => this.transitionTo('libraries'));
+    saveFriend(newFriend) {
+        friend.save().then(() => this.transitionTo('friend'));
     },
 
     willTransition(transition) {

@@ -1,10 +1,32 @@
 @import "bootstrap";
+
 body {
     padding-top: 20px;
+}
+
+.nav-pills > li.active > a, 
+.nav-pills > li.active > a:hover, 
+.nav-pills > li.active > a:focus, {
+    background-color: transparent;
+    color: black;
 }
 h1{
     text-align: center;
 }
 .friend-item {
     min-height: 150px;
+}
+h3{
+    margin-left: 40px;
+    margin-bottom: 20px;
+    align-items: center;
+    font-weight: bold;
+}
+.form-horizontal .control-label {
+    padding-right: 0px;
+    font-size: 18px;
+}
+a{
+    font-size: 20px;
+
 }
