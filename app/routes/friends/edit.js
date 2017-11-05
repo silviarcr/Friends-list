@@ -8,14 +8,15 @@ export default Ember.Route.extend({
 
   actions: {
 
-    saveFriend(newFriend) {
-        friend.save().then(() => this.transitionTo('friend'));
+    saveFriend(friend) {
+      alert("saving edition");
+      friend.save().then(() => this.transitionTo('friends'));
     },
 
     willTransition(transition) {
 
-      let model = this.controller.get('model');
 
+      let model = this.controller.get('model');
       if (model.get('hasDirtyAttributes')) {
         let confirmation = confirm("Your changes haven't saved yet. Would you like to leave this form?");
 

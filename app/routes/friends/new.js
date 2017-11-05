@@ -10,6 +10,7 @@ export default Ember.Route.extend({
   actions: {
 
     saveFriend(newFriend) {
+      // alert(`Salvando...`);
       newFriend.save().then(() => this.controller.set('responseMessage', true));
     },
 
