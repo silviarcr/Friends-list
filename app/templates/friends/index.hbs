@@ -1,10 +1,11 @@
-<h3>Listar Todos</h3>
+<div class="row">
+  <div class="col-sm-10 col-md-12">
+    <h1>Listar Todos</h1>
+  </div>
+</div>
 {{#each model as |friend|}}
 <div class="col-md-4">
   <div class="panel panel-default friend-item">
-    <div class="panel-heading">
-      <h3 class="panel-title">{{friend.name}}</h3>
-    </div>
     <div class="panel-body">
       <p>Nome: {{friend.name}}</p>
       <p>Sobrenome: {{friend.lastname}}</p>

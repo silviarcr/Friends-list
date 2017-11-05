@@ -10,11 +10,12 @@ export default Ember.Route.extend({
   actions: {
 
     saveFriend(newFriend) {
-      newFriend.save().then(() => this.transitionTo('friends'));
+      newFriend.save().then(() => this.controller.set('responseMessage', true));
     },
 
     willTransition() {
       this.controller.get('model').rollbackAttributes();
+      this.controller.set('responseMessage', false);
     }
   }
 });

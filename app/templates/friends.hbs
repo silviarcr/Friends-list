@@ -1,7 +1,9 @@
 <div class="well">
   <ul class="nav nav-pills">
-    {{#link-to 'friends.index' tagName="li"}}<a href="">Listar Amigos</a>{{/link-to}}
-    {{#link-to 'friends.new' tagName="li"}}<a href="">Novo Amigo</a>{{/link-to}}
+    {{#link-to 'friends.index' tagName="li"}}
+    <a href="">Listar Amigos</a>{{/link-to}} {{#link-to 'friends.new' tagName="li"}}
+    <a href="">Novo Amigo</a>{{/link-to}}
   </ul>
 </div>
+
 {{outlet}}
