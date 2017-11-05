@@ -10,8 +10,24 @@ export default Ember.Route.extend({
   actions: {
 
     saveFriend(newFriend) {
-      // alert(`Salvando...`);
-      newFriend.save().then(() => this.controller.set('responseMessage', true));
+
+      if (!newFriend.get("isValidName")) { 
+
+         alert("É preciso preencher o campo nome com mais de 3 caracteres.");
+     
+      } 
+      
+      else if (!newFriend.get("isValidLastName")) {
+
+        alert("É preciso preencher o campo sobrenome com mais de 3 caracteres.");
+
+      } 
+      
+      else {
+
+        newFriend.save().then(() => this.controller.set('responseMessage', true));
+      }
+
     },
 
     willTransition() {

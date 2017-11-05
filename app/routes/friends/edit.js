@@ -9,23 +9,22 @@ export default Ember.Route.extend({
   actions: {
 
     saveFriend(friend) {
-      alert("saving edition");
-      friend.save().then(() => this.transitionTo('friends'));
+      // friend.save().then(() => this.transitionTo('friends'));
+      let confirmation = confirm("Deseja realmente salvar?");
+
+      if (confirmation) {
+        friend.save().then(() => this.transitionTo('friends'));
+      }
+      else {
+          willDestroyElement();
+      }
+
     },
 
     willTransition(transition) {
 
+      this.controller.get('model').rollbackAttributes();
 
-      let model = this.controller.get('model');
-      if (model.get('hasDirtyAttributes')) {
-        let confirmation = confirm("Your changes haven't saved yet. Would you like to leave this form?");
-
-        if (confirmation) {
-          model.rollbackAttributes();
-        } else {
-          transition.abort();
-        }
-      }
     }
   }
 });
