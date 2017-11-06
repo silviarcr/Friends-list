@@ -7,24 +7,15 @@ export default Ember.Route.extend({
   },
 
   actions: {
-
-    saveFriend(friend) {
-      // friend.save().then(() => this.transitionTo('friends'));
-      let confirmation = confirm("Deseja realmente salvar?");
-
-      if (confirmation) {
-        friend.save().then(() => this.transitionTo('friends'));
-      }
-      else {
-          willDestroyElement();
-      }
-
+    saveFriend() {
+      this.controller.set('responseMessage', true);
     },
-
-    willTransition(transition) {
-
+    confirmFriend(friend) {
+      friend.save().then(() => this.transitionTo('friends'));
+    },
+    willTransition() {
       this.controller.get('model').rollbackAttributes();
-
+      this.controller.set('responseMessage', false);
     }
   }
 });

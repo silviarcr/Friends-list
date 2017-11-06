@@ -1,29 +1,49 @@
 <div class="row">
-  <div class="col-sm-offset-2 col-sm-10 col-md-4">
-    <h3>Editar dados de Amigo</h3>
-  </div>
-</div>
-
-<div class="row">
   <div class="col-md-6">
 
-    <form class="form-horizontal" action="get">
-      <div class="form-group has-feedback {{if model.isValidName 'has-success'}}">
-        <label>Nome*:</label> 
-        {{input type="text" class="form-control" class="required" placeholder="" value=model.name autofocus="autofocus"}}
-      </div>
-      <div class="form-group has-feedback {{if model.isValidLastName 'has-success'}}">
-        <label>Sobrenome*:</label>
-        {{input type="text" class="form-control"class="required" placeholder="" value=model.lastname autofocus="autofocus"}}
-      </div>
-      <div class="form-group">
-        <label>Amigos desde:</label>
-        {{input type="date" value=model.friendsSince class="form-control" placeholder=""}}
-      </div>
-      {{!-- <button class="btn btn-success" {{action 'saveFriend' model}} disabled={{model.isNotValid}}>Salvar</button> --}}
-      <button class="btn btn-success" {{action 'saveFriend' model}} disabled={{model.isNotValid}}>Salvar</button>
+    {{#if responseMessage}}
 
-    </form>
+    <br/>
+    <div class="alert alert-info">
+      <h4>Deseja realmente salvar?</h4>
+      <div class="text-center">
+        <p>Nome: {{model.name}}</p>
+        <p>Sobrenome: {{model.lastname}}</p>
+        <p>Amigos desde: {{model.friendsSince}}</p>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <button class="btn btn-success" {{action 'confirmFriend' model}}>Sim</button>
+        </div>
+        <div class=" col-md-6 text-right">
+          {{#link-to 'friends.index' class="btn btn-danger"}}Não{{/link-to}}
+        </div>
+      </div>
 
+    </div>
+
+    {{else}}
+
+    <div class="col-sm-10 col-md-12">
+      <h2>Editar dados de Amigo</h2>
+    </div>
+    <div class="col-sm-10 col-md-12">
+      <form class="form-horizontal" action="get">
+        <div class="form-group has-feedback {{if model.isValidName 'has-success'}}">
+          <label>Nome*:</label>
+          {{input type="text" class="form-control" class="required" placeholder="" value=model.name autofocus="autofocus"}}
+        </div>
+        <div class="form-group has-feedback {{if model.isValidLastName 'has-success'}}">
+          <label>Sobrenome*:</label>
+          {{input type="text" class="form-control"class="required" placeholder="" value=model.lastname autofocus="autofocus"}}
+        </div>
+        <div class="form-group">
+          <label>Amigos desde:</label>
+          {{input type="date" value=model.friendsSince class="form-control" placeholder=""}}
+        </div>
+        <button class="btn btn-success" {{action 'saveFriend' model}} disabled={{model.isNotValid}}>Salvar</button>
+      </form>
+    </div>
+    {{/if}}
   </div>
- </div>
+</div>

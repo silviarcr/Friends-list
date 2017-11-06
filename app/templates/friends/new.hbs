@@ -9,16 +9,18 @@
 
     {{#if responseMessage}}
 
-    <br/>
+   
     <div class="alert alert-success">
       <h4>Amigo Cadastrado</h4>
       <p>Nome: {{model.name}}</p>
       <p>Sobrenome: {{model.lastname}}</p>
       <p>Amigos desde: {{model.friendsSince}}</p>
+
       <div class="text-right">
         {{#link-to 'friends.index' class='btn btn-success btn-xs'}}Voltar{{/link-to}}
       </div>
     </div>
+
 
     {{else}} 
     
