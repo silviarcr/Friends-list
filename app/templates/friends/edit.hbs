@@ -1,33 +1,29 @@
 <div class="row">
   <div class="col-sm-offset-2 col-sm-10 col-md-4">
-   <h3>Editar dados de Amigo</h3>
+    <h3>Editar dados de Amigo</h3>
+  </div>
 </div>
-</div>
 
+<div class="row">
+  <div class="col-md-6">
 
- <form class="form-horizontal">
-    <div class="form-group">
-      <label class="col-sm-2 control-label">Nome</label>
-      <div class="col-sm-10 col-md-4">
-        {{input type="text" class="form-control"  value="" placeholder=model.name}}
+    <form class="form-horizontal" action="get">
+      <div class="form-group has-feedback {{if model.isValidName 'has-success'}}">
+        <label>Nome*:</label> 
+        {{input type="text" class="form-control" class="required" placeholder="" value=model.name autofocus="autofocus"}}
       </div>
-    </div>
-    <div class="form-group">
-      <label class="col-sm-2 control-label">Sobrenome</label>
-      <div class="col-sm-10 col-md-4">
-        {{input type="text" class="form-control" value="" placeholder=model.lastname}}
+      <div class="form-group has-feedback {{if model.isValidLastName 'has-success'}}">
+        <label>Sobrenome*:</label>
+        {{input type="text" class="form-control"class="required" placeholder="" value=model.lastname autofocus="autofocus"}}
       </div>
-    </div>
-    <div class="form-group">
-      <label class="col-sm-2 control-label">Amigos desde</label>
-      <div class="col-sm-10 col-md-4">
-        {{input type="text" class="form-control" value="" placeholder= model.friendsSince}}
+      <div class="form-group">
+        <label>Amigos desde:</label>
+        {{input type="date" value=model.friendsSince class="form-control" placeholder=""}}
       </div>
-    </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10 col-md-4">
-        <button type="submit" class="btn btn-default" {{action 'saveFriend' model}}>Salvar Alterações</button>
-      </div>
-    </div>
-  </form>
+      {{!-- <button class="btn btn-success" {{action 'saveFriend' model}} disabled={{model.isNotValid}}>Salvar</button> --}}
+      <button class="btn btn-success" {{action 'saveFriend' model}} disabled={{model.isNotValid}}>Salvar</button>
 
+    </form>
+
+  </div>
+ </div>
