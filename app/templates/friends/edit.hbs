@@ -9,7 +9,8 @@
       <div class="text-center">
         <p>Nome: {{model.name}}</p>
         <p>Sobrenome: {{model.lastname}}</p>
-        <p>Amigos desde: {{model.friendsSince}}</p>
+        {{!-- <p>Amigos desde: {{model.friendsSince}}</p> --}}
+        
       </div>
       <div class="row">
         <div class="col-md-6">
@@ -40,9 +41,9 @@
         <div class="form-group">
           <label>Amigos desde:</label>
           {{!-- {{input type="date" value=model.friendsSince class="form-control" placeholder=""}} --}}
-          {{bootstrap-datepicker class="form-control" id="date-picker" value=model.friendsSince placeholder=model.friendsSince
+          {{bootstrap-datepicker class="form-control" class="required" value=model.friendsSince placeholder=model.friendsSince
            format="dd/mm/yyyy"   orientation="right" autofocus= "autofocus" autoclose=true}}
-        </div>
+          </div>
         <button class="btn btn-success" {{action 'saveFriend' model}} disabled={{model.isNotValid}}>Salvar</button>
       </form>
     </div>

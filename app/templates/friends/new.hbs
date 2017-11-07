@@ -9,21 +9,20 @@
 
     {{#if responseMessage}}
 
-   
+
     <div class="alert alert-success">
       <h4>Amigo Cadastrado</h4>
       <p>Nome: {{model.name}}</p>
       <p>Sobrenome: {{model.lastname}}</p>
       <p>Amigos desde: {{model.friendsSince}}</p>
-
       <div class="text-right">
         {{#link-to 'friends.index' class='btn btn-success btn-xs'}}Voltar{{/link-to}}
       </div>
     </div>
 
 
-    {{else}} 
-    
+    {{else}}
+
     <form class="form-horizontal" action="get">
       <div class="form-group has-feedback {{if model.isValidName 'has-success'}}">
         <label>Nome*:</label>
@@ -39,7 +38,9 @@
       </div>
       <div class="form-group">
         <label>Amigos desde:</label>
-        {{input type="date" value=model.friendsSince class="form-control" placeholder=""}}
+        {{!-- {{input type="date" value=model.friendsSince class="form-control" placeholder=""}} --}} 
+        {{bootstrap-datepicker class="form-control" class="required" value=model.friendsSince placeholder=model.friendsSince format="dd/mm/yyyy" orientation="right"
+        autofocus= "autofocus" autoclose=true}}
       </div>
       <button class="btn btn-info" {{action 'saveFriend' model}} disabled={{model.isValid}}>Enviar</button>
       <button class="btn btn-success" {{action 'saveFriend' model}} disabled={{model.isNotValid}}>Salvar</button>

@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import moment from 'moment';
 
 export default Ember.Route.extend({
 
@@ -15,6 +16,8 @@ export default Ember.Route.extend({
         alert("É preciso preencher o campo sobrenome com mais de 3 caracteres.");
       }
       else {
+        let friendsSince = moment(newFriend.get("friendsSince")).format("DD/MM/YYYY");
+        newFriend.set("friendsSince", friendsSince);
         newFriend.save().then(() => this.controller.set('responseMessage', true));
       }
     },
